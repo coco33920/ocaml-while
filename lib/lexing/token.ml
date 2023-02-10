@@ -1,6 +1,7 @@
 type token =
   String of string 
   | Int of int
+  | Var of string
   | Keyword of string
   | OpenParenthesis
   | CloseParenthesis
@@ -8,6 +9,7 @@ type token =
   | Percentages
   | Quote
   | Assignement
+  | Null
 
 let token_to_string = function
   | String s -> s
@@ -19,6 +21,8 @@ let token_to_string = function
   | Percentages -> "%"
   | Quote -> "\""
   | Assignement -> ":="
+  | Null -> ""
+  | Var s -> s
 
 let string_to_token = function
   | "nil" -> Keyword "nil"
@@ -30,4 +34,4 @@ let string_to_token = function
   | "write" -> Keyword "write"
   | ":=" -> Assignement
   | s -> try Int (int_of_string s) with 
-    | Failure _ -> String s 
+    | Failure _ -> Null
