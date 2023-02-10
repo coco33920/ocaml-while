@@ -35,3 +35,16 @@ let string_to_token = function
   | ":=" -> Assignement
   | s -> try Int (int_of_string s) with 
     | Failure _ -> Null
+
+let print_token = function
+  | String s -> "[String " ^ s ^ "] "
+  | Int i -> "[Int " ^ (string_of_int i) ^ "] "
+  | Keyword s -> "[Keyword " ^ s ^ "] "
+  | OpenParenthesis -> "[(] "
+  | CloseParenthesis -> "[)] "
+  | SemiColon -> "[;] "
+  | Percentages -> "[%] "
+  | Quote -> "[\"] "
+  | Assignement -> "[:=] "
+  | Null -> ""
+  | Var s -> "[Var " ^ s ^ "] " 
