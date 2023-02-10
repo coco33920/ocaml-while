@@ -32,6 +32,8 @@ let string_to_token = function
   | "do" -> Keyword "do"
   | "od" -> Keyword "od"
   | "write" -> Keyword "write"
+  | "hd" -> Keyword "hd"
+  | "tl" -> Keyword "tl"
   | ":=" -> Assignement
   | s -> try Int (int_of_string s) with 
     | Failure _ -> Null

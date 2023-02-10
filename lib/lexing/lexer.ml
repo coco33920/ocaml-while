@@ -1,7 +1,7 @@
 let is_a_token s = 
   let t = Token.string_to_token s in 
   match t with
-    | Null -> if s = "" then (Token.Null,false) else (Token.String s,true)
+    | Null -> (Token.Null,false)
     | s -> (s,true)
 
 let lex str = 
