@@ -5,22 +5,17 @@
 (generate_opam_files true)
 
 (source
- (github username/reponame))
+ (github coco33920/ocaml-while))
 
-(authors "Author Name")
+(authors "Charlotte Thomas")
 
-(maintainers "Maintainer Name")
+(maintainers "Charlotte Thomas")
 
-(license LICENSE)
+(license GPL-3.0-or-later)
 
-(documentation https://url/to/documentation)
 
 (package
  (name ocaml_while)
- (synopsis "A short synopsis")
- (description "A longer description")
- (depends ocaml dune)
- (tags
-  (topics "to describe" your project)))
-
-; See the complete stanza docs at https://dune.readthedocs.io/en/stable/dune-files.html#dune-project
+ (synopsis "An implementation of the while programming language")
+ (description "OCaml Implementation of the while programming language as seen in Calculability, 4th semester, 2nd year, Bachelor of Science, University of Rennes")
+ (depends ocaml dune))
