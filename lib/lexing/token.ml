@@ -7,6 +7,7 @@ type token =
   | SemiColon
   | Percentages
   | Quote
+  | Assignement
 
 let token_to_string = function
   | String s -> s
@@ -17,6 +18,7 @@ let token_to_string = function
   | SemiColon -> ";"
   | Percentages -> "%"
   | Quote -> "\""
+  | Assignement -> ":="
 
 let string_to_token = function
   | "nil" -> Keyword "nil"
@@ -26,5 +28,6 @@ let string_to_token = function
   | "do" -> Keyword "do"
   | "od" -> Keyword "od"
   | "write" -> Keyword "write"
+  | ":=" -> Assignement
   | s -> try Int (int_of_string s) with 
     | Failure _ -> String s 
