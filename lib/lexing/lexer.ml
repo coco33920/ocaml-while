@@ -13,6 +13,6 @@ let lex str =
       | ')'::t -> aux (Token.CloseParenthesis::acc) "" t
       | '"'::t -> aux (Token.Quote::acc) "" t
       | '%'::t -> aux (Token.Percentages::acc) "" t
-      | ' '::t -> let a,b = is_a_token (word) in if b then aux (a::acc) "" t else aux (Token.Var word::acc) "" t
+      | ' '::t -> let a,b = is_a_token (word) in if b then aux (a::acc) "" t else aux (Token.String word::acc) "" t
       | h::t -> let a,b = is_a_token (word^(String.make 1 h)) in if b then aux (a::acc) "" t else aux acc (word^(String.make 1 h)) t
   in aux [] "" l_seq
