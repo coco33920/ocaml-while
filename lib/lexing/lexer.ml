@@ -17,7 +17,6 @@ let lex str =
         if word == "" then aux (Token.Quote :: acc) "" t
         else aux (Token.Quote :: Token.String word :: acc) "" t
     | '%' :: t ->
-        print_endline word;
         if word == "" then aux (Token.Percentages :: acc) "" t
         else aux (Token.Percentages :: Token.String word :: acc) "" t
     | ' ' :: t ->

@@ -4,4 +4,4 @@ let sd =
 ;;
 
 List.map (fun c -> print_string (Ocaml_while.Token.print_token c)) sd;;
-print_newline;;
+print_newline
