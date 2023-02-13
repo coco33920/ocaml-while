@@ -7,13 +7,18 @@ let lex str =
   let rec aux acc word lst =
     match lst with
     | [] -> acc
-    | '(' :: t -> aux (Token.OpenParenthesis :: acc) word t
+    | '(' :: t ->
+        if word == "" then aux (Token.OpenParenthesis :: acc) "" t
+        else aux (Token.OpenParenthesis :: Token.String word :: acc) "" t
     | ')' :: t ->
-        print_endline word;
         if word == "" then aux (Token.CloseParenthesis :: acc) "" t
         else aux (Token.CloseParenthesis :: Token.String word :: acc) "" t
-    | '"' :: t -> aux (Token.Quote :: acc) word t
-    | '%' :: t -> aux (Token.Percentages :: acc) word t
+    | '"' :: t ->
+        if word == "" then aux (Token.Quote :: acc) "" t
+        else aux (Token.Quote :: Token.String word :: acc) "" t
+    | '%' :: t ->
+        if word == "" then aux (Token.Percentages :: acc) "" t
+        else aux (Token.Percentages :: Token.String word :: acc) "" t
     | ' ' :: t ->
         let a, b = is_a_token word in
         if b then aux (a :: acc) "" t
