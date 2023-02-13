@@ -1,5 +1,5 @@
 type token =
-  String of string 
+  | String of string
   | Int of int
   | Var of string
   | Keyword of string
@@ -15,7 +15,7 @@ let token_to_string = function
   | String s -> s
   | Int i -> string_of_int i
   | Keyword s -> s
-  | OpenParenthesis -> "(" 
+  | OpenParenthesis -> "("
   | CloseParenthesis -> ")"
   | SemiColon -> ";"
   | Percentages -> "%"
@@ -35,12 +35,11 @@ let string_to_token = function
   | "hd" -> Keyword "hd"
   | "tl" -> Keyword "tl"
   | ":=" -> Assignement
-  | s -> try Int (int_of_string s) with 
-    | Failure _ -> Null
+  | s -> ( try Int (int_of_string s) with Failure _ -> Null)
 
 let print_token = function
   | String s -> "[String " ^ s ^ "] "
-  | Int i -> "[Int " ^ (string_of_int i) ^ "] "
+  | Int i -> "[Int " ^ string_of_int i ^ "] "
   | Keyword s -> "[Keyword " ^ s ^ "] "
   | OpenParenthesis -> "[(] "
   | CloseParenthesis -> "[)] "
@@ -49,4 +48,4 @@ let print_token = function
   | Quote -> "[\"] "
   | Assignement -> "[:=] "
   | Null -> ""
-  | Var s -> "[Var " ^ s ^ "] " 
+  | Var s -> "[Var " ^ s ^ "] "
