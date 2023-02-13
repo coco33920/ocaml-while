@@ -1,0 +1,5 @@
+read X
+%
+(cons (hd X))
+%
+write Y
