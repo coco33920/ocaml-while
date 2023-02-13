@@ -1,5 +1,8 @@
 read X
 %
-(cons (hd X))
+Y := nil
+while (Y) do
+    (cons (hd X))
+od
 %
 write Y
