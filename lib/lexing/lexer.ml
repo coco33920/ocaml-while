@@ -16,3 +16,4 @@ let lex str =
       | '%'::t -> aux (Token.Percentages::acc) "" t
       | h::t -> let a,b = is_a_token (word^(String.make 1 h)) in if b then aux (a::acc) "" t else aux acc (word^(String.make 1 h)) t
   in List.rev (aux [] "" l_seq)
+  
