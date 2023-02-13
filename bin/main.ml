@@ -1,4 +1,8 @@
 let () = print_endline "Hello, World!"
-let s = Ocaml_while.Lexer.lex "(cons (hd X))";;
 
-List.map (fun c -> print_string (Ocaml_while.Token.print_token c)) s
+let sd =
+  Ocaml_while.Utils.read_file "examples/test.while"
+  |> String.concat " " |> Ocaml_while.Lexer.lex
+;;
+
+List.map (fun c -> print_string (Ocaml_while.Token.print_token c)) sd
