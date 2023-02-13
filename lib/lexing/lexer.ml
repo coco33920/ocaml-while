@@ -3,6 +3,7 @@ let is_a_token s =
   match t with
     | Null -> (Token.Null,false)
     | s -> (s,true)
+    
 
 let lex str = 
   let l_seq = List.of_seq (String.to_seq str) in
@@ -16,4 +17,3 @@ let lex str =
       | '%'::t -> aux (Token.Percentages::acc) "" t
       | h::t -> let a,b = is_a_token (word^(String.make 1 h)) in if b then aux (a::acc) "" t else aux acc (word^(String.make 1 h)) t
   in List.rev (aux [] "" l_seq)
-  
